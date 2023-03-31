@@ -1,13 +1,8 @@
+import { registerRoutes } from '@http/routes'
 import fastify from 'fastify'
-import { authRoutes } from './routes/transactions/transactions'
-import { PrismaClient } from '@prisma/client'
-
-export const prisma = new PrismaClient()
 
 const app = fastify()
 
-export default app
+registerRoutes(app)
 
-app.register(authRoutes, {
-  prefix: '/auth',
-})
+export default app
